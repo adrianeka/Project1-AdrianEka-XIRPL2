@@ -5,30 +5,46 @@ import Classes.*;
 import java.util.Scanner;
 
 public class MainAplikasiKasir {
-    public static void main(String[] args){
-        //inisialisasi kelas Scanner untuk mengambil
-        //input dari keyboard
-        Scanner input = new Scanner(System.in);
 
-        MainAplikasiKasir app = new MainAplikasiKasir();
-        //tampilan daftar menu
-        app.generateDaftarMenu();
-    }
     public DaftarMenu daftarMenu;
     //Tambahkan
     public static double PAJAK_PPN = 0.10;
     public static double BIAYA_SERVICE = 0.05;
     //End of Tambahkan
 
-    public void generateDaftarMenu() {
-        //init
+    public static void main(String[] args){
+        //inisialisasi kelas Scanner untuk mengambil
+        //input dari keyboard
         Scanner input = new Scanner(System.in);
         //Tambahkan
         String no_transaksi, nama_pemesanan, tanggal, no_meja = "";
         String transaksi_lagi = "", pesan_lagi = "", keterangan ="", makan_ditempat;
         int jumlah_pesanan, no_menu;
         //End of Tambahkan
-        
+
+        MainAplikasiKasir app = new MainAplikasiKasir();
+        //tampilan daftar menu
+        app.generateDaftarMenu();
+        // mulai transaksi
+        System.out.println("========== TRANSAKSI ==========");
+
+        //ambil data transaksi
+        System.out.print("No Transaksi : ");
+        no_transaksi = input.next();
+        System.out.print("Pemesan : ");
+        nama_pemesanan = input.next();
+        System.out.print("Tanggal : [dd-mm-yyyy] ");
+        tanggal = input.next();
+        System.out.print("Makan ditempat? [Y?N] ");
+        makan_ditempat = input.next();
+
+        if (makan_ditempat.equalsIgnoreCase("Y")) {
+            System.out.print("Nomor Meja : ");
+            no_meja = input.next();
+        }
+    }
+
+    public void generateDaftarMenu() {
         daftarMenu = new DaftarMenu();
         daftarMenu.tambahMenu(new Ramen("Ramen Seafood", 25000));
         daftarMenu.tambahMenu(new Ramen("Ramen Original", 18000));
