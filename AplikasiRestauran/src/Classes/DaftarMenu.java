@@ -77,7 +77,7 @@ public class DaftarMenu {
             Menu m = daftarMenu.get(no_menu - 1);
 
             //cek apakah menu kuah?
-            if (!m.getKategori().equalsIgnoreCase("Kuah")) {
+            if (m.getKategori().equalsIgnoreCase("Kuah")) {
                 return m;
             } else {
                 System.out.println("[Err] Bukan menu kuah");
